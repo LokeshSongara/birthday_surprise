@@ -1,0 +1,218 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Surprise</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Pacifico', cursive;
+            background: linear-gradient(to bottom, #ff0000, #ff7f7f);
+            position: relative;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            color: white;
+        }
+        .hidden {
+            display: none;
+        }
+        h1 {
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        img {
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            margin-top: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        .hearts {
+            font-size: 50px;
+            color: red;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100px); }
+            100% { transform: translateY(100vh); }
+        }
+        .heart {
+            position: absolute;
+            top: -50px;
+            font-size: 30px;
+            animation: fall linear infinite;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="nameInput">
+        <h2>Enter your name:</h2>
+        <input type="text" id="name" />
+        <button onclick="checkName()">Submit</button>
+    </div>
+    <div id="birthdayMessage" class="hidden">
+        <div class="hearts">❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️</div>
+        <h1>Happy Birthday Piyu, my bestie!</h1>
+        <img id="profilePic" src="C:\Users\ACER\Pictures\piyu.jpg" alt="Birthday Girl" />
+    </div>
+</div>
+
+<script>
+    function checkName() {
+        const name = document.getElementById('name').value.toLowerCase();
+        if (name === 'payal') {
+            document.getElementById('nameInput').classList.add('hidden');
+            document.getElementById('birthdayMessage').classList.remove('hidden');
+            startFallingHearts();
+        } else {
+            alert('Sorry, that\'s not the right name!');
+        }
+    }
+
+    function startFallingHearts() {
+        for (let i = 0; i < 30; i++) {
+            createHeart();
+        }
+    }
+
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.innerHTML = '❤️';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+        document.body.appendChild(heart);
+        heart.addEventListener('animationend', () => {
+            heart.remove();
+        });
+    }
+</script>
+
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Surprise</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Pacifico', cursive;
+            background: linear-gradient(to right, #ff7f7f, #ffb3b3, #ffcccc);
+            position: relative;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            color: white;
+        }
+        .hidden {
+            display: none;
+        }
+        h1 {
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        h2 {
+            font-size: 2em;
+        }
+        input {
+            font-size: 1.5em;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+        img {
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            margin-top: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        .hearts {
+            font-size: 50px;
+            color: red;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100px); }
+            100% { transform: translateY(100vh); }
+        }
+        .heart {
+            position: absolute;
+            top: -50px;
+            font-size: 30px;
+            animation: fall linear infinite;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="nameInput">
+        <h2>Enter your best friend's name:</h2>
+        <input type="text" id="bestieName" />
+        <h2>Select your birthday date:</h2>
+        <input type="date" id="birthdayDate" />
+        <button onclick="checkInputs()">Submit</button>
+    </div>
+    <div id="birthdayMessage" class="hidden">
+        <div class="hearts">❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️</div>
+        <h1>Happy Birthday Piyu, my bestie!</h1>
+        <img id="profilePic" src=""C:\Users\ACER\Pictures\piyu.jpg"" alt="Birthday Girl" />
+    </div>
+</div>
+
+<script>
+    function checkInputs() {
+        const bestieName = document.getElementById('bestieName').value.toLowerCase();
+        const birthdayDate = new Date(document.getElementById('birthdayDate').value);
+        const targetDate = new Date('2007-11-22'); // Change the year as needed
+
+        if (bestieName === 'lokesh' && birthdayDate.toDateString() === targetDate.toDateString()) {
+            document.getElementById('nameInput').classList.add('hidden');
+            document.getElementById('birthdayMessage').classList.remove('hidden');
+            startFallingHearts();
+        } else {
+            alert(' how can you forget your bestie piyuuuuuu');
+        }
+    }
+
+    function startFallingHearts() {
+        for (let i = 0; i < 30; i++) {
+            createHeart();
+        }
+    }
+
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.innerHTML = '❤️';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+        document.body.appendChild(heart);
+        heart.addEventListener('animationend', () => {
+            heart.remove();
+        });
+    }
+</script>
+
+</body>
+</html>
